@@ -6,6 +6,16 @@
       {{- $.Site.Title -}}
     {{ end -}}
   </a></h1>
+  
+  {{ if .IsTranslated }}
+    <h4>{{ i18n "translations" }}</h4>
+    <ul>
+        {{ range .Translations }}
+            <a href="{{ .Permalink }}"> {{ .Language.LanguageName }} </a>
+        {{ end }}
+    </ul>
+  {{ end }}
+
   <div class="hamburger-menu">
     <button onclick="hamburgerMenuPressed.call(this)" aria-haspopup="true" aria-expanded="false" aria-controls="menu" aria-label="Menu">
       <span></span>
